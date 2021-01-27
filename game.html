@@ -1,65 +1,29 @@
-<script>
-    //  This function is the computer's move in the game. The computer chooses to pick between rock, paper, and scissors.
-    function computerPlay(){
-        let randomNumber = Math.floor(Math.random() * 2);  //randomNumber is either 0,1,2
-        
-        if (randomNumber === 0) 
-            return "ROCK";
-        else if (randomNumber === 1)
-            return "PAPER";
-        else if (randomNumber === 2)
-            return "SCISSORS";
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors Game</h1>
+    
+    <div class="btns">
+        <h3>What's your pick?</h3>
+        <button>Rock</button>
+        <button>Paper</button>
+        <button>Scissors</button>
+    </div>
+    
 
-    // Play a round of the game.
-    function playRound(computerSelection, playerSelection){
-        // Go through all possible computer selections. And then compare with the possible player selections.
-        if (playerSelection === computerSelection)
-            return "COMPUTER ALSO SELECTED " +playerSelection+ ". ROUND TIED!"
-        
-        switch (computerSelection){
-            case "ROCK":
-                if (playerSelection === "PAPER")
-                    return "PAPER BEATS ROCK. YOU WIN!";
-                if (playerSelection === "SCISSORS")
-                    return "SCISSORS LOSE TO ROCK. YOU LOSE!";
-            
-            case "PAPER":
-                if (playerSelection === "SCISSORS")
-                    return "SCISSORS BEAT PAPER. YOU WIN!";
-                if (playerSelection === "ROCK")
-                    return "ROCK LOSES TO PAPER. YOU LOSE!";
-            
-            case "SCISSORS":
-                if (playerSelection === "ROCK")
-                    return "ROCK BEATS SCISSORS. YOU WIN!";
-                if (playerSelection === "PAPER")
-                    return "PAPER LOSES TO SCISSORS. YOU LOSE!";
-            }
-    }
-    // Play five rounds of the game, and keep tally of computer and player wins.
-    function game(){
-        let computerWins = 0;
-        let playerWins = 0;
-
-        for (let i = 0; i < 5; i++){
-            //get player choice and computer choice
-            let playerChoice = prompt("PLEASE PICK FROM ROCK PAPERS OR SCISSORS").toUpperCase();
-            let computerChoice = computerPlay();
-
-            let roundResult = playRound(playerChoice, computerChoice);  //play one round, store the string in roundresult.
-            //Output result of round
-            console.log(roundResult);
-            // check if computer won or player won, and add to result. If both won move to next loop.
-            if (roundResult.includes("TIED"))
-                continue;
-
-            roundResult.includes("WIN") ? playerWins++ : computerWins++;
-        }
-
-        console.log("AFTER 5 GAMES, COMPUTER WON: " +computerWins+ " PLAYER WON: " +playerWins);
-        console.log(computerWins > playerWins ? "COMPUTER WINS!": "YOU WIN!"); //Output the winner of the game.
-    }
-
-    game();
-</script>
+    <div class="wrapper">
+        <div class = 'wins'>
+            <h2>Wins: </h2>
+            <h2>Losses: </h2>
+        </div>
+        <h3></h3>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
