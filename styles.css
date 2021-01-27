@@ -21,13 +21,15 @@ button{
 }
 
 .wrapper {
-    padding: 10px;
+    padding: 50px 30px;
     background-color: #7FDBFF;
+    border: solid black 4px;
     color: black;
     display: flex;
     justify-content: center;
-    margin-top: 55px;
+    margin: 50px 100px;
     flex-direction: column;
+    
 }
 
 .wins {

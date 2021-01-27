@@ -1,6 +1,6 @@
 //  This function is the computer's move in the game. The computer chooses to pick between rock, paper, and scissors.
     function computerPlay(){
-        let randomNumber = Math.floor(Math.random() * 2);  //randomNumber is either 0,1,2
+        let randomNumber = Math.floor(Math.random() * 3);  //randomNumber is either 0,1,2
         
         if (randomNumber === 0) 
             return "ROCK";
@@ -44,9 +44,7 @@
     }
 
     //This function checks if player/computer won and updates results.
-    function countWins(message, counter){
-        let computerWin = counter;
-        let playerWin = counter;
+    function countWins(message){
 
         if (message.includes('WIN')){
             playerWin++;
@@ -62,15 +60,15 @@
     const resultMessage = document.querySelector(".wrapper h3");
     const winLoss = document.querySelectorAll(".wrapper h2");
 
-    let roundCount = 0; //counter variable used inside countWins() to update their initial value.
-                     //keeps the count of the round
+    //count player wins and losses
+    let computerWin = 0;
+    let playerWin = 0;
 
     //Run playRound() on any button clicked and store a reference.
     buttons.forEach(button => 
         button.addEventListener("click", function(){
             let roundResult = playRound(computerPlay(), button.textContent.toUpperCase());
             
-            console.log(roundResult);
             updateResult(roundResult);
             countWins(roundResult);
             }    
